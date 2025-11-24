@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Warung Digital - Solusi Belanja UMKM Terpercaya">
+    <meta name="theme-color" content="#10b981">
+    <title>Warung Digital</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts (Outfit for modern feel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="brand">
+                    <span class="brand-icon">🏪</span>
+                    <h1>Warung Digital</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="cart-btn" class="icon-btn" aria-label="Keranjang">
+                        <span class="icon">🛒</span>
+                        <span id="cart-badge" class="badge hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Views -->
+        <main class="app-content">
+
+            <!-- View: Home -->
+            <section id="view-home" class="view active">
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <h2>Belanja Kebutuhan Harian Lebih Mudah</h2>
+                        <p>Produk segar langsung dari petani lokal.</p>
+                        <button class="btn-primary" onclick="navigateTo('catalog')">Belanja Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Kategori Populer</h3>
+                    <a href="#" onclick="navigateTo('catalog')">Lihat Semua</a>
+                </div>
+
+                <div class="category-scroll">
+                    <div class="category-pill active">Semua</div>
+                    <div class="category-pill">Sayur</div>
+                    <div class="category-pill">Buah</div>
+                    <div class="category-pill">Sembako</div>
+                    <div class="category-pill">Bumbu</div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Produk Unggulan</h3>
+                </div>
+                <div id="featured-products" class="product-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- View: Catalog -->
+            <section id="view-catalog" class="view">
+                <div class="search-bar-container">
+                    <input type="text" id="search-input" placeholder="Cari produk..." class="search-input">
+                </div>
+                <div id="catalog-grid" class="product-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- View: Cart -->
+            <section id="view-cart" class="view">
+                <h2>Keranjang Belanja</h2>
+                <div id="cart-items" class="cart-list">
+                    <!-- Populated by JS -->
+                    <div class="empty-state">
+                        <p>Keranjang masih kosong</p>
+                        <button class="btn-secondary" onclick="navigateTo('catalog')">Mulai Belanja</button>
+                    </div>
+                </div>
+                <div id="cart-summary" class="cart-summary hidden">
+                    <div class="summary-row">
+                        <span>Total</span>
+                        <span id="cart-total" class="total-price">Rp 0</span>
+                    </div>
+                    <button id="checkout-btn" class="btn-primary full-width">Checkout via WhatsApp</button>
+                </div>
+            </section>
+
+            <!-- View: Account -->
+            <section id="view-account" class="view">
+                <div class="profile-header">
+                    <div class="avatar">👤</div>
+                    <h3>Pelanggan Setia</h3>
+                    <p>member@warungdigital.com</p>
+                </div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <span>📦 Riwayat Pesanan</span>
+                        <span>></span>
+                    </div>
+                    <div class="menu-item">
+                        <span>📍 Alamat Tersimpan</span>
+                        <span>></span>
+                    </div>
+                    <div class="menu-item" id="theme-toggle-menu">
+                        <span>🌙 Mode Gelap</span>
+                        <div class="toggle-switch"></div>
+                    </div>
+                    <div class="menu-item text-danger">
+                        <span>🚪 Keluar</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-target="home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Beranda</span>
+            </a>
+            <a href="#" class="nav-item" data-target="catalog">
+                <span class="nav-icon">🛍️</span>
+                <span class="nav-label">Katalog</span>
+            </a>
+            <a href="#" class="nav-item" data-target="cart">
+                <span class="nav-icon">🛒</span>
+                <span class="nav-label">Keranjang</span>
+            </a>
+            <a href="#" class="nav-item" data-target="account">
+                <!DOCTYPE html>
+                <html lang="id">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+                    <meta name="description" content="Warung Digital - Solusi Belanja UMKM Terpercaya">
+                    <meta name="theme-color" content="#10b981">
+                    <title>Warung Digital</title>
+
+                    <!-- PWA Manifest -->
+                    <link rel="manifest" href="manifest.json">
+                    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+                    <!-- Styles -->
+                    <link rel="stylesheet" href="style.css">
+
+                    <!-- Fonts (Outfit for modern feel) -->
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+                        rel="stylesheet">
+                </head>
+
+                <body>
+                    <div class="app-container">
+                        <!-- Header -->
+                        <header class="app-header">
+                            <div class="header-content">
+                                <div class="brand">
+                                    <span class="brand-icon">🏪</span>
+                                    <h1>Warung Digital</h1>
+                                </div>
+                                <div class="header-actions">
+                                    <button id="cart-btn" class="icon-btn" aria-label="Keranjang">
+                                        <span class="icon">🛒</span>
+                                        <span id="cart-badge" class="badge hidden">0</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Main Content Views -->
+                        <main class="app-content">
+
+                            <!-- View: Home -->
+                            <section id="view-home" class="view active">
+                                <div class="hero-banner">
+                                    <div class="hero-text">
+                                        <h2>Belanja Kebutuhan Harian Lebih Mudah</h2>
+                                        <p>Produk segar langsung dari petani lokal.</p>
+                                        <button class="btn-primary" onclick="navigateTo('catalog')">Belanja
+                                            Sekarang</button>
+                                    </div>
+                                </div>
+
+                                <div class="section-header">
+                                    <h3>Kategori Populer</h3>
+                                    <a href="#" onclick="navigateTo('catalog')">Lihat Semua</a>
+                                </div>
+
+                                <div class="category-scroll">
+                                    <div class="category-pill active">Semua</div>
+                                    <div class="category-pill">Sayur</div>
+                                    <div class="category-pill">Buah</div>
+                                    <div class="category-pill">Sembako</div>
+                                    <div class="category-pill">Bumbu</div>
+                                </div>
+
+                                <div class="section-header">
+                                    <h3>Produk Unggulan</h3>
+                                </div>
+                                <div id="featured-products" class="product-grid">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </section>
+
+                            <!-- View: Catalog -->
+                            <section id="view-catalog" class="view">
+                                <div class="search-bar-container">
+                                    <input type="text" id="search-input" placeholder="Cari produk..."
+                                        class="search-input">
+                                </div>
+                                <div id="catalog-grid" class="product-grid">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </section>
+
+                            <!-- View: Cart -->
+                            <section id="view-cart" class="view">
+                                <h2>Keranjang Belanja</h2>
+                                <div id="cart-items" class="cart-list">
+                                    <!-- Populated by JS -->
+                                    <div class="empty-state">
+                                        <p>Keranjang masih kosong</p>
+                                        <button class="btn-secondary" onclick="navigateTo('catalog')">Mulai
+                                            Belanja</button>
+                                    </div>
+                                </div>
+                                <div id="cart-summary" class="cart-summary hidden">
+                                    <div class="summary-row">
+                                        <span>Total</span>
+                                        <span id="cart-total" class="total-price">Rp 0</span>
+                                    </div>
+                                    <button id="checkout-btn" class="btn-primary full-width">Checkout via
+                                        WhatsApp</button>
+                                </div>
+                            </section>
+
+                            <!-- View: Account -->
+                            <section id="view-account" class="view">
+                                <div class="profile-header">
+                                    <div class="avatar">👤</div>
+                                    <h3>Pelanggan Setia</h3>
+                                    <p>member@warungdigital.com</p>
+                                </div>
+                                <div class="menu-list">
+                                    <div class="menu-item">
+                                        <span>📦 Riwayat Pesanan</span>
+                                        <span>></span>
+                                    </div>
+                                    <div class="menu-item">
+                                        <span>📍 Alamat Tersimpan</span>
+                                        <span>></span>
+                                    </div>
+                                    <div class="menu-item" id="theme-toggle-menu">
+                                        <span>🌙 Mode Gelap</span>
+                                        <div class="toggle-switch"></div>
+                                    </div>
+                                    <div class="menu-item text-danger">
+                                        <span>🚪 Keluar</span>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </main>
+
+                        <!-- Bottom Navigation -->
+                        <nav class="bottom-nav">
+                            <a href="#" class="nav-item active" data-target="home">
+                                <span class="nav-icon">🏠</span>
+                                <span class="nav-label">Beranda</span>
+                            </a>
+                            <a href="#" class="nav-item" data-target="catalog">
+                                <span class="nav-icon">🛍️</span>
+                                <span class="nav-label">Katalog</span>
+                            </a>
+                            <a href="#" class="nav-item" data-target="cart">
+                                <span class="nav-icon">🛒</span>
+                                <span class="nav-label">Keranjang</span>
+                            </a>
+                            <a href="#" class="nav-item" data-target="account">
+                                <span class="nav-icon">👤</span>
+                                <span class="nav-label">Akun</span>
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Product Detail Modal -->
+                    <div id="product-modal" class="modal hidden">
+                        <div class="modal-overlay"></div>
+                        <div class="modal-content">
+                            <button class="modal-close">&times;</button>
+                            <div class="modal-body">
+                                <img id="modal-img" src="" alt="Product" class="modal-product-img">
+                                <div class="modal-info">
+                                    <span id="modal-category" class="modal-category-tag">Kategori</span>
+                                    <h2 id="modal-title">Nama Produk</h2>
+                                    <p id="modal-price" class="modal-price">Rp 0</p>
+                                    <p id="modal-desc" class="modal-description">Deskripsi produk...</p>
+                                    <div class="modal-actions">
+                                        <div class="qty-control">
+                                            <button class="qty-btn" id="modal-qty-minus">-</button>
+                                            <span id="modal-qty">1</span>
+                                            <button class="qty-btn" id="modal-qty-plus">+</button>
+                                        </div>
+                                        <button id="modal-add-btn" class="btn-primary flex-grow">
+                                            + Keranjang
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toast Notification -->
+                    <div id="toast" class="toast hidden">Item ditambahkan ke keranjang</div>
+
+                    <script src="app.js"></script>
+                </body>
+
+                </html>
